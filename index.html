@@ -6,26 +6,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/custom.css">
-     <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-
-      @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-          float: none;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/docs.css">
   </head>
   <body>
+    <!--Nav bar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -46,134 +30,218 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
+        <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav affix">
               <li class="nav-header">Data</li>
-              <li class="active"><a href="#">Data object</a></li>
+              <li><a href="#data-line">Sample Data - line</a></li>
+              <li><a href="#data-area">Sample Data - area</a></li>
+              <li><a href="#data-add">Add Data</a></li>
+              <li><a href="#data-update">Update Data</a></li>
+              <li><a href="#data-remove">Remove Data</a></li>
               <li class="nav-header">States</li>
-              <li><a href="#">Loading</a></li>
-              <li><a href="#">Error</a></li>
-              <li><a href="#">No data</a></li>
-              <li><a href="#">Change state</a></li>
+              <li><a href="#sec-state-loading">Loading</a></li>
+              <li><a href="#sec-state-error">Error</a></li>
+              <li><a href="#sec-state-empty">No data</a></li>
+              <li><a href="#sec-state-update">Update state</a></li>
               <li class="nav-header">Graph Builder</li>
-              <li><a href="#">Line</a></li>
+              <li><a href="#sec-gb-line">Line</a></li>
+              <li><a href="#sec-gb-area">Area</a></li>
               <li class="nav-header">Line graph</li>
-              <li><a href="#">Single line</a></li>
-              <li><a href="#">Multi line graph</a></li>
+              <li><a href="#sec-line-single">Single line</a></li>
+              <li><a href="#sec-line-multi">Multi line graph</a></li>
               <li class="nav-header">Area graph</li>
-              <li><a href="#">Single area</a></li>
-              <li><a href="#">Multi area graph</a></li>
+              <li><a href="#sec-area-single">Single area</a></li>
+              <li><a href="#sec-area-multi">Multi area graph</a></li>
+              <li><a href="#sec-area-stacked">Stacked area graph</a></li>
             </ul>
-          </div>
         </div>
 
         <div class="span8">
-        <section>
-          <h4>Data Object</h4>
-          <p>The following data object is being used in all the examples.</p>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
-          </div>
-        </section>
+          <h3>Glimpse Examples</h3>
+          <section id="data-line">
+            <h4>Sample Data - line</h4>
+            <p>The following data object is being used in all line graph examples.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>Loading State</h4>
-          <p></p>
-          <div class="example">
-            <div id="state-loading" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/9e3e81fdb517b2e3a4aa.js"></script>
-          </div>
-        </section>
+          <section id="data-area">
+            <h4>Sample Data - Area</h4>
+            <p>The following data object is being used in all area graph examples.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>Error State</h4>
-          <p></p>
-          <div class="example">
-            <div id="state-error" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/ae1cb3ac9f02b4d952f5.js"></script>
-          </div>
-        </section>
+          <section id="data-add">
+            <h4>Add data</h4>
+            <p>Use <code>add</code> to add a data source to data collection.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/6d0ee406d565e47b29ac.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>No data state</h4>
-          <p></p>
-          <div class="example">
-            <div id="state-empty" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/f2dd19ba994a7c99eb62.js"></script>
-          </div>
-        </section>
+          <section id="data-update">
+            <h4>Update data</h4>
+            <p>Use <code>append</code> method to append data to an existing data source.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/e4ef9d626810a5ab9473.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>Update state</h4>
-          <p></p>
-          <div class="example">
-            <div id="state-normal" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/f2dd19ba994a7c99eb62.js"></script>
-          </div>
-        </section>
+           <section id="data-remove">
+            <h4>Remove data</h4>
+            <p>Use <code>remove</code> method on <code>data</code> to remove a source from data collection.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/40efd9d337049550dc93.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>Single line graph</h4>
-          <p>Single line graph without legend generated using 'latencyOrd' data.</p>
-          <div class="example">
-            <div id="line-single" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/08b087c771c4949da449.js"></script>
-          </div>
-        </section>
+          <section id="sec-state-loading">
+            <h4>Loading State</h4>
+            <p>Set the state of the graph by calling the <code>state</code> method with <code>'loading'/empty/error'</code> as parameter</p>
+            <div class="example">
+              <div id="state-loading" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/9e3e81fdb517b2e3a4aa.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>Multi-line graph</h4>
-          <p>Multi line graph with legend generated using 'latencyOrd', 'latencyDfw' and 'latencyLon' data series.
-          <div class="example">
-            <div id="line-multiple" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/163afe58cecb7ffc1931.js"></script>
-          </div>
-        </section>
+          <section id="sec-state-error">
+            <h4>Error State</h4>
+            <p></p>
+            <div class="example">
+              <div id="state-error" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/ae1cb3ac9f02b4d952f5.js"></script>
+            </div>
+          </section>
 
-         <section>
-          <h4>Single area graph</h4>
-          <p>Single line graph without legend generated using 'latencyOrd' data.</p>
-          <div class="example">
-            <div id="area-single" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/d97300bc4a1612b8d6a5.js"></script>
-          </div>
-        </section>
+          <section id="sec-state-empty">
+            <h4>No data state</h4>
+            <p>Set the <code>emptyMessage</code> in the <code>config</code> of the graph.</p>
+            <div class="example">
+              <div id="state-empty" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/f2dd19ba994a7c99eb62.js"></script>
+            </div>
+          </section>
 
-        <section>
-          <h4>Multi-area graph</h4>
-          <p>Multi line graph with legend generated using 'latencyOrd', 'latencyDfw' and 'latencyLon' data series.
-          <div class="example">
-            <div id="area-multiple" class="graph"></div>
-          </div>
-          <div class="code">
-            <script src="https://gist.github.com/glimpse-dev/c6fa466e12fbfaf8524b.js"></script>
-          </div>
-        </section>
+          <section id="sec-state-update">
+            <h4>Update state</h4>
+            <p>Use <code>state</code> method to update state of the graph.</p>
+            <div class="example">
+              <div id="state-normal" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/746b15e55b6018f5cefd.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-gb-line">
+            <h4>Graphbuilder - line</h4>
+            <p><code>graphBuilder</code> is an easy way to generate multi series line or area graphs with minimal code. Set the data on the graph and the graph-builder will generate a line/area component per data series.</p>
+            <div class="example">
+              <div id="gb-line" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/c144e078f36e0432600b.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-gb-area">
+            <h4>Graphbuilder - area</h4>
+            <p></p>
+            <div class="example">
+              <div id="gb-area" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/39b09085947308790536.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-sline-single">
+            <h4>Single line graph</h4>
+            <p>Single line graph legend generated using 'latencyOrd' data.</p>
+            <div class="example">
+              <div id="line-single" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/08b087c771c4949da449.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-line-multi">
+            <h4>Multi-line graph</h4>
+            <p>Multi line graph with legend generated using 'latencyOrd', 'latencyDfw' and 'latencyLon' data series.
+            <div class="example">
+              <div id="line-multiple" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/163afe58cecb7ffc1931.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-area-single">
+            <h4>Single area graph</h4>
+            <p></p>
+            <div class="example">
+              <div id="area-single" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/d97300bc4a1612b8d6a5.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-area-multi">
+            <h4>Multi-area graph</h4>
+            <p></p>
+            <div class="example">
+              <div id="area-multiple" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/c6fa466e12fbfaf8524b.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-area-stacked">
+            <h4>Stacked area graph</h4>
+            <p></p>
+            <div class="example">
+              <div id="area-stacked" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/c0f7a901a2e2c49f2181.js"></script>
+            </div>
+          </section>
         </div>
       </div>
     </div>
 
     <script src="lib/glimpse.js"></script>
+    <script src="js/data-line.js"></script>
+    <script src="js/data-area.js"></script>
     <script src="js/config.js"></script>
-    <script src="js/data.js"></script>
     <script src="js/line.js"></script>
     <script src="js/states.js"></script>
     <script src="js/area.js"></script>
+    <script src="js/graph-builder.js"></script>
 
   </body>
 </html>
+<!-- Section template
+<section id="sec-">
+  <h4></h4>
+  <p></p>
+  <div class="example">
+    <div id="" class="graph"></div>
+  </div>
+  <div class="code">
+    <script src=""></script>
+  </div>
+</section>
+-->

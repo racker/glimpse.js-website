@@ -19,15 +19,12 @@ var loadingStateGraph = glimpse.graph()
   .render('#state-loading')
   .state('loading');
 
-
 var normalStateGraph = glimpse.graph()
   .config(config)
   .render('#state-normal')
   .state('loading');
 
 window.setTimeout(function() {
-  normalStateGraph.data(data)
-    .state('normal')
-    .component({ cid: 'lineOrd', type: 'line', dataId: 'latencyOrd'})
-    .update();
-}, 1000);
+  normalStateGraph.data(sampleLineData)
+    .state('normal');
+}, 2000);
