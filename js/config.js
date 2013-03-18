@@ -4,16 +4,20 @@ var config = {
   forceY: [0]
 };
 
-  myGraph.config('height', 150);
-  mygraph.height(150);
+var myGraph = glimpse.graphBuilder().create('line')
+  .data(lineDataConfig);
 
-  myGraph.config({
-    width: 600,
-    height: 200
-  });
+myGraph.config('height', 150);
+myGraph.height(150);
 
-  myComponent.config('color', 'red');
-  myComponent.color('green');
+myGraph.config({
+  width: 600,
+  height: 200
+});
 
-  myComponent.config();
+var myComponent = myGraph.component('latencyOrd');
+myComponent.config('color', 'red');
+myComponent.color('green');
+
+myComponent.config();
 

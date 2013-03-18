@@ -1,18 +1,4 @@
-var epochBaseMs = new Date().getTime();
-var oneDayMs = 1000 * 60 * 60 * 24;
-
-var sampleLineData = [
-  {
-    data: [
-      {"time":epochBaseMs + 0 * oneDayMs,"latency": 80},
-      {"time":epochBaseMs + 1 * oneDayMs,"latency": 120},
-      {"time":epochBaseMs + 2 * oneDayMs,"latency": 60},
-      {"time":epochBaseMs + 3 * oneDayMs,"latency": 90},
-      {"time":epochBaseMs + 4 * oneDayMs,"latency": 100}
-    ]
-  }
-];
-
+//Area data
 var sampleAreaData = [
   { "ts": 1317279600000, "sys": 30, "user": 20, "stolen": 1, "wait": 9, "idle": 40},
   { "ts": 1317695968421, "sys": 31, "user": 19, "stolen": 1, "wait": 9, "idle": 40},
@@ -57,6 +43,21 @@ var areaDataConfig = [
   }
 ];
 
+//Line data
+var epochBaseMs = new Date().getTime();
+var oneDayMs = 1000 * 60 * 60 * 24;
+
+var sampleLineData = [
+  {
+    data: [
+      {"time":epochBaseMs + 0 * oneDayMs,"latency": 80},
+      {"time":epochBaseMs + 1 * oneDayMs,"latency": 120},
+      {"time":epochBaseMs + 2 * oneDayMs,"latency": 60},
+      {"time":epochBaseMs + 3 * oneDayMs,"latency": 90},
+      {"time":epochBaseMs + 4 * oneDayMs,"latency": 100}
+    ]
+  }
+];
 var lineDataConfig = [
   {
     id: 'latencyDfw',
@@ -86,15 +87,48 @@ var lineDataConfig = [
   }
 ];
 
-var dataCollection;
-dataCollection = myGraph.data();
-dataCollection.add(newDataSet);
-myGraph.update();
+//Append Data
+document.getElementById('update')
+  .addEventListener('click', update, false);
+var appendDataSampleData = [
+  {
+    data: [
+      {"time":epochBaseMs + 0 * oneDayMs,"latency": 10},
+      {"time":epochBaseMs + 1 * oneDayMs,"latency": 28},
+      {"time":epochBaseMs + 2 * oneDayMs,"latency": 20},
+      {"time":epochBaseMs + 3 * oneDayMs,"latency": 26},
+      {"time":epochBaseMs + 4 * oneDayMs,"latency": 10}
+    ]
+  }
+];
 
-myGraph.data().append(
-    'latencyOrd',
-    {
+var currentDay = appendDataSampleData[0].data.length;
+
+var appendDataConfig = [
+  {
+    id: 'latencyOrd',
+    title: 'Time to Connect (ORD)',
+    data: appendDataSampleData[0].data,
+    dimensions: { x: 'time', y: 'latency' }
+  }
+];
+
+var appendDataGraph = glimpse.graphBuilder.create('line')
+  .config({
+    domainIntervalUnit: d3.time.week,
+  })
+  .data(appendDataConfig)
+  .render('#data-append');
+
+
+function update() {
+  appendDataGraph.data()
+    .append('latencyOrd', {
       time: epochBaseMs + currentDay++ * oneDayMs,
       latency: (Math.random() * 150)
     });
-myGraph.update();
+  appendDataGraph.update();
+}
+
+
+

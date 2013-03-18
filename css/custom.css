@@ -89,3 +89,15 @@ body {
   padding: 8px 14px;
   border: 1px solid #e5e5e5;
 }
+
+#add {
+  margin-left: 20px;
+}
+
+#update {
+  margin-left: 20px;
+}
+
+#toggle {
+  margin-left: 20px;
+}

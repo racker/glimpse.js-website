@@ -34,6 +34,7 @@
             <ul class="nav nav-list bs-docs-sidenav affix">
               <li class="nav-header">Graph Builder</li>
               <li class="active"><a href="#sec-gb-line">Line</a></li>
+              <li><a href="#sec-gb-add">Add data</a></li>
               <li><a href="#sec-gb-area">Area</a></li>
               <li class="nav-header">States</li>
               <li><a href="#sec-state-loading">Loading</a></li>
@@ -41,24 +42,28 @@
               <li><a href="#sec-state-empty">No data</a></li>
               <li><a href="#sec-state-update">Update state</a></li>
               <li class="nav-header">Config</li>
-              <li><a href="#config-add">Add/Update config</a></li>
+              <li><a href="#sec-config-add">Add/Update config</a></li>
               <li class="nav-header">Data</li>
-              <li><a href="#data-line">Sample data - line</a></li>
-              <li><a href="#data-area">Sample data - area</a></li>
-              <li><a href="#data-add">Add data</a></li>
-              <li><a href="#data-update">Update data</a></li>
-              <li><a href="#data-remove">Remove data</a></li>
-              <li class="nav-header">Line graph</li>
+              <li><a href="#sec-data-line">Sample data - line</a></li>
+              <li><a href="#sec-data-area">Sample data - area</a></li>
+              <li><a href="#sec-data-add">Add new data</a></li>
+              <li><a href="#sec-data-update">Append data</a></li>
+              <li><a href="#sec-ata-remove">Remove data</a></li>
+              <li class="nav-header">Components</li>
+              <li><a href="#sec-component-show-hide">Show/Hide</a></li>
+              <li class="nav-header">Label Component</li>
+               <li><a href="#sec-label-add">Add a label</a></li>
+              <li class="nav-header">Line Component</li>
               <li><a href="#sec-line-single">Single line</a></li>
               <li><a href="#sec-line-multi">Multi line graph</a></li>
-              <li class="nav-header">Area graph</li>
+              <li class="nav-header">Area Component</li>
               <li><a href="#sec-area-single">Single area</a></li>
               <li><a href="#sec-area-multi">Multi area graph</a></li>
               <!--li><a href="#sec-area-stacked">Stacked area graph</a></li-->
             </ul>
         </div>
 
-        <div class="span8">
+        <div class="span7">
           <h3>Glimpse Examples</h3>
           <p>
             Check out the <a href="https://github.com/racker/glimpse.js/wiki/Quick-Start-Guide">Quick-Start Guide</a> to get up and running quickly.
@@ -76,6 +81,21 @@
             </div>
             <div class="code">
               <script src="https://gist.github.com/glimpse-dev/c144e078f36e0432600b.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-gb-add">
+            <h4>Graph Builder - Add new components</h4>
+            <p>Add new data to the data collection and call <code>update</code> to render new line components.</p>
+            <p></p>
+            <div class="example">
+              <div>
+                <button type="button" id="add" class="btn-small btn-primary">Add Data Set</button>
+              </div>
+              <div id="gb-add" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/e198f1e03a8294caaa16.js"></script>
             </div>
           </section>
 
@@ -134,15 +154,15 @@
             </div>
           </section>
 
-          <section id="config-add">
+          <section id="sec-config-add">
             <h4>Add/Update config</h4>
-            <p>Use <code>config</code> method or the availale properties on graph/component to add or update property values. Call the <code>update</code> method on the graph to reflect the newly set property values. Passing zero arguments will return an object literal of all the config values (including pre-defined defaults).</p>
+            <p>Use <code>config</code> method or the availale properties on graph/component to add or update property values. Passing zero arguments will return an object literal of all the config values (including pre-defined defaults). Call the <code>update</code> method on the graph to reflect the newly set property values.</p>
             <div class="code">
               <script src="https://gist.github.com/glimpse-dev/c5d08247976852724d18.js"></script>
             </div>
           </section>
 
-          <section id="data-line">
+          <section id="sec-data-line">
             <h4>Sample Data - line</h4>
             <p>The following data object is being used in all line graph examples.</p>
             <div class="code">
@@ -150,7 +170,7 @@
             </div>
           </section>
 
-          <section id="data-area">
+          <section id="sec-data-area">
             <h4>Sample Data - Area</h4>
             <p>The following data object is being used in all area graph examples.</p>
             <div class="code">
@@ -158,7 +178,7 @@
             </div>
           </section>
 
-          <section id="data-add">
+          <section id="sec-data-add">
             <h4>Add data</h4>
             <p>Use <code>add</code> to add a data source to data collection.</p>
             <div class="code">
@@ -166,19 +186,48 @@
             </div>
           </section>
 
-          <section id="data-update">
-            <h4>Update data</h4>
+          <section id="sec-data-update">
+            <h4>Append data</h4>
             <p>Use <code>append</code> method to append data to an existing data source.</p>
+            <div class="example">
+              <div>
+                <button type="button" id="update" class="btn-small btn-primary">Update</button>
+              </div>
+              <div id="data-append" class="graph"></div>
+            </div>
             <div class="code">
               <script src="https://gist.github.com/glimpse-dev/e4ef9d626810a5ab9473.js"></script>
             </div>
           </section>
 
-          <section id="data-remove">
+          <section id="sec-data-remove">
             <h4>Remove data</h4>
             <p>Use <code>remove</code> method on <code>data</code> to remove a source from data collection.</p>
             <div class="code">
               <script src="https://gist.github.com/glimpse-dev/40efd9d337049550dc93.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-component-show-hide">
+            <h4>Show/Hide component</h4>
+            <p>Use <code>show</code> and <code>hide</code> methods on components to toggle the visibility.</p>
+            <div class="example">
+              <button type="button" id="toggle" class="btn-small btn-primary">Hide</button>
+              <div id="component-show-hide" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/8ba1e02602a185717984.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-label-add">
+            <h4>Add label</h4>
+            <p></p>
+            <div class="example">
+              <div id="label-add" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/da41884b55c8ec429934.js"></script>
             </div>
           </section>
 
@@ -225,6 +274,7 @@
               <script src="https://gist.github.com/glimpse-dev/c6fa466e12fbfaf8524b.js"></script>
             </div>
           </section>
+
           <!--
           <section id="sec-area-stacked">
             <h4>Stacked area graph</h4>
@@ -241,18 +291,20 @@
       </div>
     </div>
 
+    <!-- JavaScript Files -->
     <script src="lib/glimpse.js"></script>
     <script src="lib/jquery-1.9.1.min.js"></script>
     <script src="lib/bootstrap/bootstrap.js"></script>
     <script src="lib/bootstrap/bootstrap-affix.js"></script>
     <script src="lib/bootstrap/bootstrap-scrollspy.js"></script>
-    <script src="js/data-line.js"></script>
-    <script src="js/data-area.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/config.js"></script>
     <script src="js/line.js"></script>
     <script src="js/states.js"></script>
     <script src="js/area.js"></script>
+    <script src="js/component.js"></script>
     <script src="js/graph-builder.js"></script>
+    <!-- JavaScript Files -->
 
   </body>
 </html>

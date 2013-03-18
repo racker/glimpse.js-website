@@ -89,6 +89,7 @@ function filterData(processName) {
   })[0].values;
 }
 
+/*
 var stackedArea = glimpse.graph()
   .config({
     'forceY': [0, 100],
@@ -101,3 +102,4 @@ var stackedArea = glimpse.graph()
   .component({ type: 'area', dataId: 'cpu-wait', color: '#F5F692' })
   .component({ type: 'area', dataId: 'cpu-stolen', color: '#FF5A86' })
   .render('#area-stacked');
+  */
