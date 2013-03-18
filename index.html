@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/docs.css">
   </head>
-  <body>
+  <body data-target=".bs-docs-sidebar" data-spy="scroll">
     <!--Nav bar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Glimpse Examples</a>
+          <a class="brand site-name" href="#">Glimpse Examples</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -32,20 +32,20 @@
       <div class="row-fluid">
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav affix">
+              <li class="nav-header">Graph Builder</li>
+              <li class="active"><a href="#sec-gb-line">Line</a></li>
+              <li><a href="#sec-gb-area">Area</a></li>
+              <li class="nav-header">States</li>
+              <li><a href="#sec-state-loading">Loading</a></li>
+              <li><a href="#sec-state-error">Error</a></li>
+              <li><a href="#sec-state-empty">No data</a></li>
+              <li><a href="#sec-state-update">Update state</a></li>
               <li class="nav-header">Data</li>
               <li><a href="#data-line">Sample Data - line</a></li>
               <li><a href="#data-area">Sample Data - area</a></li>
               <li><a href="#data-add">Add Data</a></li>
               <li><a href="#data-update">Update Data</a></li>
               <li><a href="#data-remove">Remove Data</a></li>
-              <li class="nav-header">States</li>
-              <li><a href="#sec-state-loading">Loading</a></li>
-              <li><a href="#sec-state-error">Error</a></li>
-              <li><a href="#sec-state-empty">No data</a></li>
-              <li><a href="#sec-state-update">Update state</a></li>
-              <li class="nav-header">Graph Builder</li>
-              <li><a href="#sec-gb-line">Line</a></li>
-              <li><a href="#sec-gb-area">Area</a></li>
               <li class="nav-header">Line graph</li>
               <li><a href="#sec-line-single">Single line</a></li>
               <li><a href="#sec-line-multi">Multi line graph</a></li>
@@ -58,50 +58,39 @@
 
         <div class="span8">
           <h3>Glimpse Examples</h3>
-          <p>Check out the <a href="https://github.com/racker/glimpse.js/wiki/Quick-Start-Guide">Quick-Start Guide</a> to get up and running quickly.
-          <section id="data-line">
-            <h4>Sample Data - line</h4>
-            <p>The following data object is being used in all line graph examples.</p>
+          <p>
+            Check out the <a href="https://github.com/racker/glimpse.js/wiki/Quick-Start-Guide">Quick-Start Guide</a> to get up and running quickly.
+          </p>
+          <p>
+            NOTE: Sample data  used in all the examples can be found under the <a href="#data-line">Data</a> section.
+          </p>
+
+          <section id="sec-gb-line">
+            <h4>Graph Builder - line</h4>
+            <p><code>graphBuilder</code> is an easy way to create multi series line or area graphs with minimal code. Set the data on the graph and the graph-builder will generate a line/area component per data series.</p>
+            <p>Refer to the <a href="#sec-line-multi">Line</a> and <a href="#sec-area-multi">Area</a> section for examples to generate line and area graphs without using the Graph Builder.</p>
+            <div class="example">
+              <div id="gb-line" class="graph"></div>
+            </div>
             <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
+              <script src="https://gist.github.com/glimpse-dev/c144e078f36e0432600b.js"></script>
             </div>
           </section>
 
-          <section id="data-area">
-            <h4>Sample Data - Area</h4>
-            <p>The following data object is being used in all area graph examples.</p>
+          <section id="sec-gb-area">
+            <h4>Graph Builder - area</h4>
+            <p></p>
+            <div class="example">
+              <div id="gb-area" class="graph"></div>
+            </div>
             <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
+              <script src="https://gist.github.com/glimpse-dev/39b09085947308790536.js"></script>
             </div>
           </section>
 
-          <section id="data-add">
-            <h4>Add data</h4>
-            <p>Use <code>add</code> to add a data source to data collection.</p>
-            <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/6d0ee406d565e47b29ac.js"></script>
-            </div>
-          </section>
-
-          <section id="data-update">
-            <h4>Update data</h4>
-            <p>Use <code>append</code> method to append data to an existing data source.</p>
-            <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/e4ef9d626810a5ab9473.js"></script>
-            </div>
-          </section>
-
-           <section id="data-remove">
-            <h4>Remove data</h4>
-            <p>Use <code>remove</code> method on <code>data</code> to remove a source from data collection.</p>
-            <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/40efd9d337049550dc93.js"></script>
-            </div>
-          </section>
-
-          <section id="sec-state-loading">
+           <section id="sec-state-loading">
             <h4>Loading State</h4>
-            <p>Set the state of the graph by calling the <code>state</code> method with <code>'loading'/empty/error'</code> as parameter</p>
+            <p>Set the state of the graph by calling the <code>state</code> method with <code>'loading'/empty/error/normal'</code> as parameter</p>
             <div class="example">
               <div id="state-loading" class="graph"></div>
             </div>
@@ -143,25 +132,43 @@
             </div>
           </section>
 
-          <section id="sec-gb-line">
-            <h4>Graphbuilder - line</h4>
-            <p><code>graphBuilder</code> is an easy way to generate multi series line or area graphs with minimal code. Set the data on the graph and the graph-builder will generate a line/area component per data series.</p>
-            <div class="example">
-              <div id="gb-line" class="graph"></div>
-            </div>
+          <section id="data-line">
+            <h4>Sample Data - line</h4>
+            <p>The following data object is being used in all line graph examples.</p>
             <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/c144e078f36e0432600b.js"></script>
+              <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
             </div>
           </section>
 
-          <section id="sec-gb-area">
-            <h4>Graphbuilder - area</h4>
-            <p></p>
-            <div class="example">
-              <div id="gb-area" class="graph"></div>
-            </div>
+          <section id="data-area">
+            <h4>Sample Data - Area</h4>
+            <p>The following data object is being used in all area graph examples.</p>
             <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/39b09085947308790536.js"></script>
+              <script src="https://gist.github.com/glimpse-dev/f114a4ef5bd92c5cf760.js"></script>
+            </div>
+          </section>
+
+          <section id="data-add">
+            <h4>Add data</h4>
+            <p>Use <code>add</code> to add a data source to data collection.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/6d0ee406d565e47b29ac.js"></script>
+            </div>
+          </section>
+
+          <section id="data-update">
+            <h4>Update data</h4>
+            <p>Use <code>append</code> method to append data to an existing data source.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/e4ef9d626810a5ab9473.js"></script>
+            </div>
+          </section>
+
+          <section id="data-remove">
+            <h4>Remove data</h4>
+            <p>Use <code>remove</code> method on <code>data</code> to remove a source from data collection.</p>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/40efd9d337049550dc93.js"></script>
             </div>
           </section>
 
@@ -224,6 +231,10 @@
     </div>
 
     <script src="lib/glimpse.js"></script>
+    <script src="lib/jquery-1.9.1.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.js"></script>
+    <script src="lib/bootstrap/bootstrap-affix.js"></script>
+    <script src="lib/bootstrap/bootstrap-scrollspy.js"></script>
     <script src="js/data-line.js"></script>
     <script src="js/data-area.js"></script>
     <script src="js/config.js"></script>
