@@ -60,6 +60,6 @@ var lineGraphAdd = glimpse.graphBuilder().create('line')
 function addDataset() {
   var dataCollection;
   dataCollection = lineGraphAdd.data();
-  dataCollection.add(moreData);
+  dataCollection.add(generateDataset());
   lineGraphAdd.update();
 };
