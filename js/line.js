@@ -1,4 +1,4 @@
-var singleLineGraph = lineGraph = glimpse.graph()
+var singleLineGraph  = glimpse.graph()
   .config(config)
   .data(lineDataConfig)
   .component({ cid: 'lineOrd', type: 'line', dataId: 'latencyOrd'})

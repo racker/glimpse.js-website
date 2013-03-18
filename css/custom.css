@@ -38,7 +38,7 @@ h4 {
 }
 
 .graph {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 /*
 .gist .line-numbers {
@@ -84,7 +84,7 @@ body {
 
 .bs-docs-sidenav > li.nav-header {
   display: block;
-  width: 190px \9;
+  width: 190px 9;
   margin: 0 0 -1px;
   padding: 8px 14px;
   border: 1px solid #e5e5e5;
