@@ -52,9 +52,40 @@ var labelGraph = glimpse.graph()
     type:'label',
     text:'New label',
     position: 'center-left',
-    target: '.gl-footer',
+    target: 'gl-footer',
+    color: 'red'
   })
   .render('#label-add');
+
+//Axis
+var axisGraph = glimpse.graph()
+  .config(config)
+  .data(lineDataConfig)
+  .component({
+    type:'axis',
+    axisType: 'y',
+    scale: d3.scale.linear(),
+    ticks: 4,
+    unit: 'ms',
+    position: 'center-right',
+    target: 'gl-main',
+  })
+  .render('#axis-add');
+
+
+//Legend
+var legendGraph = glimpse.graph()
+  .config(config)
+  .data(lineDataConfig)
+  .component({
+    type:'legend',
+    keys: [
+        {color: "red",label: "Foo"},
+        {color: "green",label: "FooFoo"},
+      ],
+      target: 'gl-info'
+  })
+  .render('#legend-add');
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3 bs-docs-sidebar">
-            <ul class="nav nav-list bs-docs-sidenav affix">
+            <ul class="nav nav-list bs-docs-sidenav affix"  data-spy="affix" data-offset-bottom="300">
               <li class="nav-header">Graph Builder</li>
               <li class="active"><a href="#sec-gb-line">Line</a></li>
               <li><a href="#sec-gb-add">Add data</a></li>
@@ -48,22 +48,31 @@
               <li><a href="#sec-data-area">Sample data - area</a></li>
               <li><a href="#sec-data-add">Add new data</a></li>
               <li><a href="#sec-data-update">Append data</a></li>
-              <li><a href="#sec-ata-remove">Remove data</a></li>
+              <li><a href="#sec-data-remove">Remove data</a></li>
+              <li><a href="#sec-data-derived">Derived data</a></li>
               <li class="nav-header">Components</li>
               <li><a href="#sec-component-show-hide">Show/Hide</a></li>
               <li class="nav-header">Label Component</li>
-               <li><a href="#sec-label-add">Add a label</a></li>
+              <li><a href="#sec-label-add">Add a label</a></li>
+              <li class="nav-header">Axis Component</li>
+              <li><a href="#sec-axis-add">Add an axis</a></li>
+              <li class="nav-header">Legend Component</li>
+              <li><a href="#sec-legend-add">Add a legend</a></li>
               <li class="nav-header">Line Component</li>
               <li><a href="#sec-line-single">Single line</a></li>
               <li><a href="#sec-line-multi">Multi line graph</a></li>
               <li class="nav-header">Area Component</li>
               <li><a href="#sec-area-single">Single area</a></li>
               <li><a href="#sec-area-multi">Multi area graph</a></li>
-              <!--li><a href="#sec-area-stacked">Stacked area graph</a></li-->
+              <li class="nav-header">Layouts</li>
+              <li><a href="#sec-layout-one">Default Layout</a></li>
+              <li><a href="#sec-layout-two">Layout Example 1</a></li>
+              <li><a href="#sec-layout-three">Layout Example 2</a></li>
+
             </ul>
         </div>
 
-        <div class="span7">
+        <div class="span8">
           <h3>Glimpse Examples</h3>
           <p>
             Check out the <a href="https://github.com/racker/glimpse.js/wiki/Quick-Start-Guide">Quick-Start Guide</a> to get up and running quickly.
@@ -90,7 +99,7 @@
             <p></p>
             <div class="example">
               <div>
-                <button type="button" id="add" class="btn-small btn-primary">Add Data Set</button>
+                <button type="button" id="add" class="btn-small btn-primary btn-margin">Add Data Set</button>
               </div>
               <div id="gb-add" class="graph"></div>
             </div>
@@ -191,7 +200,7 @@
             <p>Use <code>append</code> method to append data to an existing data source.</p>
             <div class="example">
               <div>
-                <button type="button" id="update" class="btn-small btn-primary">Update</button>
+                <button type="button" id="update" class="btn-small btn-primary btn-margin">Update</button>
               </div>
               <div id="data-append" class="graph"></div>
             </div>
@@ -208,11 +217,44 @@
             </div>
           </section>
 
+          <section id="sec-data-derived">
+            <h4>Derived data</h4>
+            <p>
+              Data can be of two types:
+              <ol>
+                <li>Standard (Sample data)</li>
+                <li>Derived</li>
+            </ol>
+
+            The example below uses a derived data for difference quotient is of the form:
+
+            </p>
+
+            <div class="example">
+              <div id="data-derived" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/ff621d6a48551ce48f1b.js"></script>
+            </div>
+            <div class="example">
+              The source above may be comma-delimited ids of existing data sources or * to indicate all non-derived data sources.
+              The derivation function is given a data selection of the source(s) to easily manipulate it.
+
+              Data selections deal with the entire data source(s) and transform it. Operations include things like computing derivativates etc
+
+              Dimensions on the other hand select a particular dimension from source(s) and perform calculations on it. Operations such as min, max, concat, avg, extent etc
+              <p>Example stats for a avg/min/max:</p>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/6a704e8a1825998d4501.js"></script>
+            </div>
+          </section>
+
           <section id="sec-component-show-hide">
             <h4>Show/Hide component</h4>
             <p>Use <code>show</code> and <code>hide</code> methods on components to toggle the visibility.</p>
             <div class="example">
-              <button type="button" id="toggle" class="btn-small btn-primary">Hide</button>
+              <button type="button" id="toggle" class="btn-small btn-primary btn-margin">Hide</button>
               <div id="component-show-hide" class="graph"></div>
             </div>
             <div class="code">
@@ -228,6 +270,28 @@
             </div>
             <div class="code">
               <script src="https://gist.github.com/glimpse-dev/da41884b55c8ec429934.js"></script>
+            </div>
+          </section>
+
+          <section id="sec-axis-add">
+            <h4>Add axis</h4>
+            <p></p>
+            <div class="example">
+              <div id="axis-add" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/911c3d45b51b81facd2c.js"></script>
+            </div>
+          </section>
+
+           <section id="sec-legend-add">
+            <h4>Add legend</h4>
+            <p></p>
+            <div class="example">
+              <div id="legend-add" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/31089b3d93879fb759ab.js"></script>
             </div>
           </section>
 
@@ -271,38 +335,63 @@
               <div id="area-multiple" class="graph"></div>
             </div>
             <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/c6fa466e12fbfaf8524b.js"></script>
+              <script src="https://gist.github.com/glimpse-dev/c6fa466e12fbfaf8524b.js">
+              </script>
             </div>
           </section>
 
-          <!--
-          <section id="sec-area-stacked">
-            <h4>Stacked area graph</h4>
+          <section id="sec-layout-one">
+            <h4>Default layout</h4>
             <p></p>
             <div class="example">
-              <div id="area-stacked" class="graph"></div>
+              <div id="layout-one" class="graph"></div>
             </div>
             <div class="code">
-              <script src="https://gist.github.com/glimpse-dev/c0f7a901a2e2c49f2181.js"></script>
+              <script src="https://gist.github.com/glimpse-dev/ca3ed2d51d7e0c6a4820.js">
+              </script>
             </div>
           </section>
-        -->
+
+          <section id="sec-layout-two">
+            <h4>Layout example 2</h4>
+            <p></p>
+            <div class="example">
+              <div id="layout-two" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/6f1fa27097dc423ff312.js">
+              </script>
+            </div>
+          </section>
+
+          <section id="sec-layout-three">
+            <h4>Layout example 3</h4>
+            <p></p>
+            <div class="example">
+              <div id="layout-three" class="graph"></div>
+            </div>
+            <div class="code">
+              <script src="https://gist.github.com/glimpse-dev/5e09f4c64c6870baaa97.js">
+              </script>
+            </div>
+          </section>
         </div>
       </div>
     </div>
 
     <!-- JavaScript Files -->
     <script src="lib/glimpse.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     <script src="lib/jquery-1.9.1.min.js"></script>
-    <script src="lib/bootstrap/bootstrap.js"></script>
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
     <script src="lib/bootstrap/bootstrap-affix.js"></script>
-    <script src="lib/bootstrap/bootstrap-scrollspy.js"></script>
     <script src="js/data.js"></script>
     <script src="js/config.js"></script>
     <script src="js/line.js"></script>
     <script src="js/states.js"></script>
     <script src="js/area.js"></script>
     <script src="js/component.js"></script>
+    <script src="js/layouts.js"></script>
     <script src="js/graph-builder.js"></script>
     <!-- JavaScript Files -->
 

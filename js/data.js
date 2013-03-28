@@ -130,5 +130,32 @@ function update() {
   appendDataGraph.update();
 }
 
+//Derived data
+// Configure which data to show.
+var derivedDataConfig = [
+  {
+    id: 'latencyDfw',
+    title: 'Time to Connect (DFW)',
+    data: sampleLineData[0].data,
+    dimensions: {
+      x: 'time',
+      y: 'latency'
+    }
+  },
+  {
+    id: 'latencyDfwROC',
+    title: 'Rate of Chagne (DFW)',
+    sources: 'latencyDfw',
+    derivation: function(sources) {
+      return sources.diffQuotient().get();
+    }
+  }
+];
+
+// Create and render a line graph.
+var derivedData = glimpse.graphBuilder().create('line')
+  .data(derivedDataConfig)
+  .render('#data-derived');
+
 
 
