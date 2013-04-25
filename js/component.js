@@ -57,21 +57,6 @@ var labelGraph = glimpse.graph()
   })
   .render('#label-add');
 
-//Axis
-var axisGraph = glimpse.graph()
-  .config(config)
-  .data(lineDataConfig)
-  .component({
-    type:'axis',
-    axisType: 'y',
-    scale: d3.scale.linear(),
-    ticks: 4,
-    unit: 'ms',
-    position: 'center-right',
-    target: 'gl-main',
-  })
-  .render('#axis-add');
-
 
 //Legend
 var legendGraph = glimpse.graph()

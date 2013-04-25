@@ -4,7 +4,7 @@ var layoutOne = glimpse.graph()
   .render('#layout-one');
 
 var layoutTwo = glimpse.graph()
-  .config({
+ .config({
     layout: {
       name: 'gl-vgroup',
       split: [70, 30],
@@ -23,7 +23,6 @@ var layoutTwo = glimpse.graph()
       ]
     }
   })
-  .legend({layout: 'horizontal', position: 'center'})
   .data(lineDataConfig)
   .component({ type: 'line', dataId: 'latencyDfw'  })
   .render('#layout-two');
@@ -49,7 +48,6 @@ var layoutThree = glimpse.graph()
       ]
     }
   })
-  .legend({layout: 'vertical', position: 'center'})
   .data(lineDataConfig)
   .component({ type: 'line', dataId: 'latencyDfw'  })
   .render('#layout-three');
