@@ -120,7 +120,6 @@ var appendDataGraph = glimpse.graphBuilder.create('line')
   .data(appendDataConfig)
   .render('#data-append');
 
-
 function update() {
   appendDataGraph.data()
     .append('latencyOrd', {
@@ -156,6 +155,4 @@ var derivedDataConfig = [
 var derivedData = glimpse.graphBuilder().create('line')
   .data(derivedDataConfig)
   .render('#data-derived');
-
-
 

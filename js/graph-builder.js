@@ -7,6 +7,14 @@ var areaGraph = glimpse.graphBuilder.create('area')
   .data(areaDataConfig)
   .render('#gb-area');
 
+var stackedGraph = glimpse.graphBuilder.create('stacked-area')
+  .config({
+    'forceY': [0, 100],
+    'yDomainModifier': 1
+  })
+  .data(areaDataConfig)
+  .render('#gb-stacked-area');
+
 // Generate more semi-random test data.
 function generateDataset() {
   var cnt = generateDataset.cnt = generateDataset.cnt ? generateDataset.cnt + 1 : 1;
