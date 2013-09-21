@@ -19,12 +19,12 @@ var loadingStateGraph = glimpse.graph()
   .render('#state-loading')
   .state('loading');
 
-var normalStateGraph = glimpse.graph()
-  .config(config)
-  .render('#state-normal')
-  .state('loading');
+// var normalStateGraph = glimpse.graph()
+//   .config(config)
+//   .render('#state-normal')
+//   .state('loading');
 
-window.setTimeout(function() {
-  normalStateGraph.data(sampleLineData)
-    .state('normal');
-}, 2000);
+// window.setTimeout(function() {
+//   normalStateGraph.data(sampleLineData)
+//     .state('normal');
+// }, 2000);
