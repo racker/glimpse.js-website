@@ -19,27 +19,32 @@ var areaDataConfig = [
   { id: 'cpu-idle',
     title: 'Idle',
     data: sampleAreaData,
-    dimensions: { x: 'ts', y: 'idle' }
+    dimensions: { x: 'ts', y: 'idle' },
+    color: '#e0f3f8'
   },
   { id: 'cpu-sys',
     title: 'System',
     data: sampleAreaData,
-    dimensions: { x: 'ts', y: 'sys' }
+    dimensions: { x: 'ts', y: 'sys' },
+    color: '#abd9e9'
   },
   { id: 'cpu-user',
     title: 'User',
     data: sampleAreaData,
-    dimensions: { x: 'ts', y: 'user' }
+    dimensions: { x: 'ts', y: 'user' },
+    color: '#74add1'
   },
   { id: 'cpu-wait',
     title: 'Wait',
     data: sampleAreaData,
-    dimensions: { x: 'ts', y: 'wait' }
+    dimensions: { x: 'ts', y: 'wait' },
+    color: '#4575b4'
   },
   { id: 'cpu-stolen',
     title: 'Stolen',
     data: sampleAreaData,
-    dimensions: { x: 'ts', y: 'stolen' }
+    dimensions: { x: 'ts', y: 'stolen' },
+    color: '#0570b0'
   }
 ];
 

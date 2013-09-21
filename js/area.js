@@ -7,11 +7,11 @@ var singleAreaGraph = glimpse.graph()
 var multiAreaGraph = glimpse.graph()
   .config(config)
   .data(areaDataConfig)
-  .component({ type: 'area', dataId: 'cpu-idle', color: '#EFEFEF' })
-  .component({ type: 'area', dataId: 'cpu-user', color: '#89D6FF' })
-  .component({ type: 'area', dataId: 'cpu-sys', color: '#FFB578' })
-  .component({ type: 'area', dataId: 'cpu-wait', color: '#F5F692' })
-  .component({ type: 'area', dataId: 'cpu-stolen', color: '#FF5A86' })
+  .component({ type: 'area', dataId: 'cpu-idle', color: '#8dd3c7' })
+  .component({ type: 'area', dataId: 'cpu-user', color: '#66c2a5' })
+  .component({ type: 'area', dataId: 'cpu-sys', color: '#fc8d62' })
+  .component({ type: 'area', dataId: 'cpu-wait', color: '#8da0cb' })
+  .component({ type: 'area', dataId: 'cpu-stolen', color: '#a6d854' })
   .render('#area-multiple');
 
  var sampleData = [
